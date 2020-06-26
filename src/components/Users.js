@@ -18,7 +18,7 @@ class Users extends Component {
         "useQueryString": true
       }, "params": {
         "format": "json",
-        "name": "italy"
+        "name": "morocco"
       }
     })
       .then((response) => {
