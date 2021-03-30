@@ -14,7 +14,7 @@ This section list the major frameworks and libraries that have been used for bui
 
 ## Screenshots
 
-![Image of website](https://octodex.github.com/images/yaktocat.png)
+![Image of website](https://github.com/Blazer3z/CovidMorocco/blob/master/Screenshot%202021-03-30%20103244.png)
 
 ## Website
 
