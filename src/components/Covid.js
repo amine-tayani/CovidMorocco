@@ -22,7 +22,8 @@ const Covid = () => {
         name: "Morocco",
       },
     });
-    setGlobal(res.data[0]), setLoading(false);
+    setGlobal(res.data[0]);
+    setLoading(false);
   }, []);
 
   return loading ? (
