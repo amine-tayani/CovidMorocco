@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import NavBar from './components/Navbar'
-import Users from './components/Users';
+import Covid from './components/Users';
 
 const App = () => {
 
   return (
     <div className="App ">
       <NavBar />
-      <Users />
+      <Covid />
     </div >
   );
 }
