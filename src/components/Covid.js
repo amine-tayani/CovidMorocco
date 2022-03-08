@@ -7,7 +7,13 @@ const Covid = () => {
   const [global, setGlobal] = useState([]);
 
   useEffect(async () => {
+    
+    
     setLoading(true);
+
+
+    async function fetchData() {
+
     const res = await axios({
       method: "GET",
       url: "https://covid-19-data.p.rapidapi.com/country",
@@ -24,6 +30,10 @@ const Covid = () => {
     });
     setGlobal(res.data[0]);
     setLoading(false);
+  }
+
+
+  fetchData()
   }, []);
 
   return loading ? (
