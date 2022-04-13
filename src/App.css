@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
-body {
-  font-family: quicksand;
+body,
+* {
+  font-family: Inter;
+  background-color: #191930;
 }
 h1 {
-  font-family: quicksand;
   font-weight: 500;
   margin: 20px;
 }
@@ -21,14 +22,17 @@ h1 {
   border-right-color: transparent;
   animation: loader-rotate 1s linear infinite;
   overflow-y: hidden;
-  
 }
 @keyframes fadein {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .animated {
   opacity: 0;
-  animation: .7s ease-in .7s fadein;
+  animation: 0.7s ease-in 0.7s fadein;
   animation-fill-mode: both;
 }
