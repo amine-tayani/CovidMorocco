@@ -14,7 +14,7 @@ This section list the major frameworks and libraries that have been used for bui
 
 ## Screenshots
 
-![Image of website](https://github.com/Blazer3z/CovidMorocco/blob/master/Screenshot%202021-03-30%20103244.png)
+![Image of website](https://github.com/amine-tayani/CovidMorocco/blob/master/Web%20capture_13-4-2022_171223_covid-morocco.vercel.app.jpeg)
 
 ## Website
 
