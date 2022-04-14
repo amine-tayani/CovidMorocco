@@ -19,6 +19,7 @@ const App = () => {
           "X-RapidAPI-Key": process.env.REACT_APP_RapidAPI_APIKey,
         },
       });
+
       setHistory(res.data.stats.history);
       setLoading(false);
     };
