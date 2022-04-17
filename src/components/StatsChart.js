@@ -3,7 +3,7 @@ import { Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 import axios from "axios";
 import { getShortNumEn } from "../utils/formatNumber";
 
-const StatsChart = ({ history }) => {
+const StatsChart = () => {
   const [newCases, setNewCases] = useState([]);
   const [newDeaths, setNewDeaths] = useState([]);
 
