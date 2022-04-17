@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Area,
-  AreaChart,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 import axios from "axios";
 import { getShortNumEn } from "../utils/formatNumber";
 
