@@ -1,27 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
-body,
-* {
+body {
   font-family: Inter;
-  background-color: #191930;
+  background-color: #1d1d22;
 }
 h1 {
   font-weight: 500;
   margin: 20px;
 }
-
-@keyframes loader-rotate {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.blue {
+  color: #347ff7;
 }
-.loader {
-  border-right-color: transparent;
-  animation: loader-rotate 1s linear infinite;
-  overflow-y: hidden;
+.red {
+  color: #ff0055;
+}
+.green {
+  color: #39c197;
+}
+.purple {
+  color: purple;
+}
+.gray {
+  color: #a7a7a9;
+}
+.orange {
+  color: #fcd031;
 }
 @keyframes fadein {
   from {
