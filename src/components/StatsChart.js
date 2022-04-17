@@ -26,7 +26,7 @@ const StatsChart = () => {
   }, []);
 
   return (
-    <div className="container mx-auto flex flex-col lg:flex-row animated">
+    <div className="container mx-auto flex flex-col lg:flex-col animated">
       <div>
         <h1 className=" text-gray-100 text-right">Daily new Covid Cases</h1>
         <LineChart
@@ -67,6 +67,7 @@ const StatsChart = () => {
             dataKey="new_cases"
             stroke="#39c197"
             strokeWidth={1}
+            type="monotone"
           />
         </LineChart>
       </div>
@@ -109,6 +110,7 @@ const StatsChart = () => {
           />
 
           <Line
+            type="monotone"
             dot={false}
             dataKey="new_deaths"
             stroke="#347ff7"
