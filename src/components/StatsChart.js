@@ -30,8 +30,8 @@ const StatsChart = () => {
       <div>
         <h1 className=" text-gray-100 text-right">Daily new Covid Cases</h1>
         <LineChart
-          width={600}
-          height={300}
+          width={1300}
+          height={500}
           data={newCases}
           margin={{ top: 0, right: 20, left: 20, bottom: 10 }}
         >
@@ -76,8 +76,8 @@ const StatsChart = () => {
           Daily new deaths from covid
         </h1>
         <LineChart
-          width={600}
-          height={300}
+          width={1300}
+          height={500}
           data={newDeaths}
           margin={{ top: 0, right: 20, left: 20, bottom: 10 }}
         >
