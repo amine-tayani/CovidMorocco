@@ -5,13 +5,27 @@ import "../App.css";
 const Dashboard = () => {
   const [data, setData] = useState(null);
 
+  const options = {
+    method: "GET",
+    url: "https://covid-19-statistics.p.rapidapi.com/reports",
+    params: {
+      iso: "MAR",
+      date: "2023-02-01",
+    },
+    headers: {
+      "X-RapidAPI-Key": "e9cbc47e7dmshb8c7455b52f358bp1e39c3jsn4365d85d4163",
+      "X-RapidAPI-Host": "covid-19-statistics.p.rapidapi.com",
+    },
+  };
+
   useEffect(() => {
     const fetchAPI = async () => {
-      const res = await axios({
-        method: "GET",
-        url: "https://disease.sh/v3/covid-19/countries/morocco",
-      });
-      setData(res.data);
+      try {
+        const response = await axios.request(options);
+        setData(response.data[0]);
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchAPI();
   }, []);
@@ -21,28 +35,28 @@ const Dashboard = () => {
       <div className="grid grid-cols-2 gap-4 place-items-center lg:flex lg:justify-around mb-10">
         <div className="card">
           <h2 className="font-bold text-3xl lg:text-4xl orange">
-            {Number(data?.todayCases).toLocaleString("en")}
+            {Number(data?.confirmed).toLocaleString("en")}
           </h2>
-          <p className="font-medium text-white">New cases</p>
+          <p className="font-medium text-white">Confirmed</p>
         </div>
         <div className="">
           <h2 className="font-bold text-3xl lg:text-4xl blue">
-            {Number(data?.cases).toLocaleString("en")}
+            {Number(data?.deaths).toLocaleString("en")}
           </h2>
-          <p className="font-medium text-white">Total Cases</p>
+          <p className="font-medium text-white">Deaths</p>
         </div>
         <div className="">
           <h2 className="font-bold text-3xl lg:text-4xl green">
             {Number(data?.recovered).toLocaleString("en")}
           </h2>
-          <p className="font-medium text-white">Total Recovered</p>
+          <p className="font-medium text-white">recovered</p>
         </div>
 
         <div className="">
           <h2 className="font-bold text-3xl lg:text-4xl red">
-            {Number(data?.deaths).toLocaleString("en")}
+            {Number(data?.confirmed_diff).toLocaleString("en")}
           </h2>
-          <p className="font-medium text-white">Total Deaths</p>
+          <p className="font-medium text-white">Confirmed difference</p>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4 place-items-center lg:flex lg:justify-around ">
@@ -54,22 +68,22 @@ const Dashboard = () => {
         </div>
         <div className="">
           <h2 className="font-bold text-3xl lg:text-4xl blue">
-            {Number(data?.population).toLocaleString("en")}
+            {Number(data?.active_diff).toLocaleString("en")}
           </h2>
-          <p className="font-medium text-white">Population</p>
+          <p className="font-medium text-white">Active Difference</p>
         </div>
         <div className="">
           <h2 className="font-bold text-3xl lg:text-4xl green">
-            {Number(data?.tests).toLocaleString("en")}
+            {Number(data?.fatality_rate).toLocaleString("en")}
           </h2>
-          <p className="font-medium text-white">Total Tests</p>
+          <p className="font-medium text-white">Fatality Rate</p>
         </div>
 
         <div className="">
           <h2 className="font-bold text-3xl lg:text-4xl red">
-            {Number(data?.critical).toLocaleString("en")}
+            {Number(data?.last_update).toLocaleString("en")}
           </h2>
-          <p className="font-medium text-white">Critical Cases</p>
+          <p className="font-medium text-white">last_update</p>
         </div>
       </div>
     </div>
