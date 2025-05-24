@@ -3,32 +3,48 @@ import { Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 import axios from "axios";
 import { getShortNumEn } from "../utils/formatNumber";
 
-const StatsChart = () => {
+const StatsChart = ({ countryIso = "MAR" }) => {
   const [newCases, setNewCases] = useState([]);
   const [newDeaths, setNewDeaths] = useState([]);
 
-  const getCovidData = () => {
-    let endpoints = [
-      "https://covid-morocco-api.vercel.app/cases",
-      "https://covid-morocco-api.vercel.app/deaths",
-    ];
-
-    Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then(
-      ([{ data: cases }, { data: deaths }]) => {
-        setNewCases(cases);
-        setNewDeaths(deaths);
-      }
-    );
-  };
-
   useEffect(() => {
-    getCovidData();
-  }, []);
+    if (countryIso === "MAR") {
+      const getCovidData = () => {
+        let endpoints = [
+          "https://covid-morocco-api.vercel.app/cases",
+          "https://covid-morocco-api.vercel.app/deaths",
+        ];
+
+        Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then(
+          ([{ data: cases }, { data: deaths }]) => {
+            setNewCases(cases);
+            setNewDeaths(deaths);
+          }
+        ).catch(error => {
+          console.error("Error fetching Morocco data:", error);
+          setNewCases([]);
+          setNewDeaths([]);
+        });
+      };
+      getCovidData();
+    } else {
+      setNewCases([]);
+      setNewDeaths([]);
+    }
+  }, [countryIso]);
+
+  if (countryIso !== "MAR") {
+    return (
+      <div className="container mx-auto flex flex-col lg:flex-col animated items-center justify-center" style={{ minHeight: '500px' }}>
+        <p className="text-white text-2xl">Daily charts are currently only available for Morocco.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto flex flex-col lg:flex-col animated">
       <div>
-        <h1 className=" text-gray-100 text-right">Daily new Covid Cases</h1>
+        <h1 className=" text-gray-100 text-right">Daily new Covid Cases (Morocco)</h1>
         <LineChart
           width={1300}
           height={500}
@@ -73,7 +89,7 @@ const StatsChart = () => {
       </div>
       <div>
         <h1 className=" text-gray-100 text-right">
-          Daily new deaths from covid
+          Daily new deaths from covid (Morocco)
         </h1>
         <LineChart
           width={1300}
